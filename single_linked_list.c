@@ -8,9 +8,10 @@ struct node{
     struct node *next;
 };
 
-void create(struct node **h){
+void create(struct node **h, int n){
     struct node *curr, *ptr;
-    for(int i=0;i<5;i++){
+    printf("Entries: ");
+    for(int i=0;i<n;i++){
         curr = (struct node *)malloc(sizeof(struct node));
         scanf("%d", &curr->data);
         curr->next = NULL;
@@ -93,8 +94,26 @@ void search(struct node *h, int v){
     }
 }
 
+void display_through_recursion(struct node *h){
+    if(h == NULL) return;
+    printf("%d ", h->data);
+    display_through_recursion(h->next);
+}
+
 int main(){
     struct node *head1 = NULL;
-    create(&head1);
+    int n;
+    printf("Enter number of initial entries : ");
+    scanf("%d", &n);
+    create(&head1, n);
+    display(head1);
+    display_through_recursion(head1);
+    printf("\n");
+    insert(&head1, 15, 3);
+    display(head1);
+    delete(&head1, 3);
+    display_through_recursion(head1);
+    printf("\n");
+    search(head1, 3);
     return 0;
 }

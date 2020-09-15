@@ -1,5 +1,4 @@
 //Owner : Kumar Ankit
-//Solution to Codechef Problem RNT011
 //Balancing the brackets
 //Example Test Cases:
 /*

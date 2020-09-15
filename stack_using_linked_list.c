@@ -35,11 +35,23 @@ int pop(STACK *S, struct node **v){
     return 0;
 }
 
+void display(STACK *S){
+    if(S->top == NULL) return;
+    struct node *t;
+    int u;
+    pop(S, &t);
+    u = t->data;
+    printf("%d ", u);
+    display(S);
+    push(S, u);
+}
+
 int main(){
     struct node *m;
     STACK S1;
     S1.top = NULL;
     int b = push(&S1, 15);
+    display(&S1);
     int c = pop(&S1, &m);
     return 0;
 }
