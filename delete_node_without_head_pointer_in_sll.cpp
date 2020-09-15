@@ -1,5 +1,4 @@
 //Owner : Kumar Ankit
-//Condition: Passed pointer should not be the last node of the linked list, i.e., it cannot be used for deleting last element of linked list.
 #include<iostream>
 using namespace std;
 
@@ -32,12 +31,14 @@ void display(struct node *h){
     printf("\n");
 }
 
+//Condition : This cannot be used to delete last element of the linked list
+//Last node's pointer must not be passed in the function
 void del_without_head(struct node **h, struct node *target){
     struct node *ptr = target;
-    ptr->data = ptr->next->data;//copy data of next node in the current node
-    ptr = ptr->next;//move one of the pointer to the next node
+    ptr->data = ptr->next->data;//copy data of next node in current node
+    ptr = ptr->next;//move one of the pointer to next node
     target->next = ptr->next;
-    free(ptr);//delete the next node
+    free(ptr);//delete next node
 }
 
 int main(){

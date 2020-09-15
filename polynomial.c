@@ -1,4 +1,4 @@
-//Kumar Ankit
+//Owner: Kumar Ankit
 #include<stdio.h>
 #include<stdlib.h>
 
