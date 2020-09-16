@@ -46,6 +46,24 @@ void copy_stack(STACK *S, STACK *final){
     }
 }
 
+void display(STACK *S){ //using another stack
+    if(S->top == -1) return;
+    int u;
+    pop(S, &u);
+    printf("%d ", u);
+    display(S);
+    push(S, u);
+}
+
+void copy_stack_using_recursion(STACK *A, STACK *B){  //using recursion
+    if(A->top == -1) return;
+    int m;
+    pop(A, &m);
+    copy_stack_using_recursion(A, B);
+    push(A, m);
+    push(B, m);
+}
+
 int main(){
     S1.top = -1;
     int n;
@@ -56,14 +74,15 @@ int main(){
         scanf("%d", &x);
         push(&S1, x);
     }
-    STACK S2;
-    S2.top = -1;
-    copy_stack(&S1, &S2);
-    printf("Displaying copied stack elements : \n");
-    while(S2.top != -1){
-        int t;
-        pop(&S2, &t);
-        printf("%d ", t);
-    }
+    // STACK S2;
+    // S2.top = -1;
+    // copy_stack(&S1, &S2);
+    // printf("Displaying copied stack elements : \n");
+    // display(&S2);
+    STACK S3;
+    S3.top = -1;
+    copy_stack_using_recursion(&S1, &S3);
+    printf("\nDisplaying copied stack using recursion:\n");
+    display(&S3);
     return 0;
 }
