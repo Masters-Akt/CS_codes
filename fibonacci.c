@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int fib(int n){
+int fib(int n){//using recursion
     if(n==0 || n==1) return n;
     return fib(n-1)+fib(n-2);
 }

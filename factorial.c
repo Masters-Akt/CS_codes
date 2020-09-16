@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-int factorial_iterative(int n){
+int factorial_iterative(int n){//iterative method
     int res = 1;
     for(int i = n; i > 1; i--){
         res*=i;
@@ -10,7 +10,7 @@ int factorial_iterative(int n){
     return res;
 }
 
-int factorial_recursive(int n){
+int factorial_recursive(int n){//recursive method
     if(n==0) return 1;
     return n*factorial_recursive(n-1);
 }

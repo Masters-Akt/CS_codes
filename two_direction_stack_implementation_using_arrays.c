@@ -100,3 +100,5 @@ int main(){
     push(&S1, 20, 1);
     return 0;
 }
+//Working
+//But optimization needed in function

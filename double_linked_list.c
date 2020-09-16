@@ -14,7 +14,7 @@ void create(struct node **h){
         curr = (struct node *)malloc(sizeof(struct node));
         scanf("%d", &curr->data);
         curr->next = curr->prev = NULL;
-        if(*h == NULL{
+        if(*h == NULL){
             *h = curr;
             ptr = curr;
         }else{
@@ -110,3 +110,4 @@ int main(){
 
     return 0;
 }
+//main not complete
