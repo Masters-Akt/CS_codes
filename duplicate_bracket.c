@@ -8,8 +8,6 @@ typedef struct{
     int top;
 }STACK;
 
-//Note: When *S is used in a function, (*S).top is same as S->top
-
 int push(STACK *S, int v){
     if(S->top == MAX-1){
         printf("Overflow\n");
