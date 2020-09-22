@@ -8,9 +8,9 @@ struct node{
     struct node *next;
 };
 
-void create(struct node **h){
+void create(struct node **h, int n){
     struct node *curr, *ptr;
-    for(int i=0;i<5;i++){
+    for(int i=0;i<n;i++){
         curr = (struct node *)malloc(sizeof(struct node));
         scanf("%d", &curr->data);
         curr->next = curr->prev = NULL;
@@ -81,7 +81,7 @@ void delete(struct node **h, int p){
         printf("Linked List is empty\n");
     }else{
         ptr = *h;
-        int i=1;
+        int i=0;//for zero based indexing
         while(i<p && ptr!=NULL){
             ptr = ptr->next;
             i++;
@@ -107,7 +107,21 @@ void delete(struct node **h, int p){
 }
 
 int main(){
-
+    struct node *head = NULL;
+    int n;
+    printf("Enter number of nodes: ");
+    scanf("%d", &n);
+    create(&head, n);
+    display(head);
+    display_reverse(head);
+    printf("Enter value to be inserted and its position: ");
+    int v, pos;
+    scanf("%d %d", &v, &pos);
+    insert(&head, v, pos);
+    display(head);
+    printf("Enter position to be deleted: ");
+    scanf("%d", &pos);
+    delete(&head, pos);
+    display(head);
     return 0;
 }
-//main not complete
