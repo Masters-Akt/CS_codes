@@ -103,7 +103,7 @@ void infix_to_prefix(char* inp, char* out){
 
 void reverse(char a[], int len){
     int i = 0, j = len-1;
-    while(i<=j){
+    while(i<j){
         char temp = a[i];
         a[i] = a[j];
         a[j] = temp;
@@ -133,3 +133,4 @@ int main(){
     return 0;
 }
 //Not Working : Giving Underflow, check prefix function
+//And evaluation method needs to be added

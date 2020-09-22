@@ -86,7 +86,35 @@ void add(struct node *h1, struct node *h2, struct node **h3){
         ptr->next=curr;
         ptr=curr;
     }
-    struct node *p2;
+}
+
+void multiply(struct node *h1, struct node *h2, struct node **h3){
+    struct node *ptr, *p1, *p2, *curr;
+    if(h1->c != h2->r) return;
+    *h3 = (struct node *)malloc(sizeof(struct node));
+    (*h3)->r = h1->r;
+    (*h3)->c = h2->c;
+    (*h3)->v = 0;
+    (*h3)->next = NULL;
+    ptr = *h3;
+    for(p1 = h1->next; p1!=NULL; p1 = p1->next){
+        for(p2 = h2->next; p2!=NULL; p2 = p2->next){
+            if(p1->c == p2->r){
+                curr = (struct node *)malloc(sizeof(struct node));
+                curr->r = p1->r;
+                curr->c = p2->c;
+                curr->v = p1->v * p2->v;
+                curr->next = NULL;
+                ptr->next = curr;
+                ptr = curr;
+                (*h3)->v++;
+            }
+        }
+    }
+}
+
+void simplify(struct node **h3){
+    struct node *p2, *p1;
     for(p1=(*h3)->next; p1!=NULL; p1=p1->next){
         struct node *temp = p1;
         p2 = p1->next;
@@ -103,35 +131,6 @@ void add(struct node *h1, struct node *h2, struct node **h3){
     }
 }
 
-void multiply(struct node *h1, struct node *h2, struct node **h3){
-    struct node *ptr, *p1, *p2, *curr;
-    if(h1->c != h2->r) return;
-    *h3 = (struct node *)malloc(sizeof(struct node));
-    (*h3)->r = h1->r;
-    (*h3)->c = h2->c;
-    (*h3)->v = 0;
-    (*h3)->next = NULL;
-    ptr = *h3;
-    for(p1 = h1->next; p1!=NULL; p1 = p1->next){
-        for(p2 = h2->next; p2!=NULL; p2 = p2->next){
-            if(p1->c == p1->r){
-                curr = (struct node *)malloc(sizeof(struct node));
-                curr->r = p1->r;
-                curr->c = p2->c;
-                curr->v = p1->v * p2->v;
-                curr->next = NULL;
-                ptr->next = curr;
-                ptr = curr;
-                (*h3)->v++;
-            }
-        }
-    }
-}
-
-void simplify(struct node *h){
-
-}
-
 int main(){
     struct node *head1 = NULL;
     printf("Creating first sparse matrix:\n");
@@ -139,7 +138,7 @@ int main(){
     printf("The sparse matrix is:\n");
     display(head1);
     int opt;
-    printf("Enter option:\n1. Transpose\n2. Addition\nOption: ");
+    printf("Enter option:\n1. Transpose\n2. Addition\n3. Multiplication\nOption: ");
     scanf("%d", &opt);
     if(opt==1){
         transpose(head1);
@@ -153,9 +152,20 @@ int main(){
         printf("The second sparse matrix is:\n");
         display(head2);
         add(head1, head2, &head3);
+        simplify(&head3);
+        printf("Addition result:\n");
+        display(head3);
+    }else if(opt==3){
+        struct node *head2 = NULL;
+        struct node *head3 = NULL;
+        printf("Creating second sparse matrix:\n");
+        create(&head2);
+        printf("The second sparse matrix is:\n");
+        display(head2);
+        multiply(head1, head2, &head3);
+        simplify(&head3);
+        printf("Multiplication result:\n");
         display(head3);
     }
     return 0;
 }
-// Remark: Dont trust on add function for now....it may not work....and complete multiplication.
-//still incomplete

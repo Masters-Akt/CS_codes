@@ -30,7 +30,7 @@ int pop(STACK *S, int *v){
     return 0;
 }
 
-void display(STACK *S){
+void display(STACK *S){//using recursion
     if(S->top == -1) return;
     int u;
     pop(S, &u);

@@ -35,7 +35,7 @@ int pop(STACK *S, struct node **v){
     return 0;
 }
 
-void display(STACK *S){
+void display(STACK *S){//using recursion
     if(S->top == NULL) return;
     struct node *t;
     int u;

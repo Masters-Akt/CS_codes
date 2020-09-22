@@ -100,10 +100,29 @@ void infix_to_postfix(char* inp, char* out){
     }
 }
 
+// void evaluate_postfix(char *out, int ans){
+//     int i=0, a,b;
+//     char m, n;
+//     while(out[i]!='\0'){
+//         if((int)out[i]>=48 && (int)out[i]<=57){
+//             push(&S1, out[i]);
+//         }else if(out[i]=='^'){
+//             pop(&S1, &m);
+//             pop(&S1, &n);
+//             a = m-'0';
+//             b = n-'0';
+//             int res = pow(b,a);
+            
+//         }
+//     }
+// }
+
 int main(){
-    char inp[] = "a/b-k*(d-e*f+g)/p";
+    char inp[100]; //"a/b-k*(d-e*f+g)/p";
     int l = 0;
     int i = 0;
+    printf("Enter infix expression: ");
+    gets(inp);
     while(inp[i]!='\0'){
         l++;
         i++;
@@ -116,6 +135,10 @@ int main(){
         printf("%c", out[i]);
         i++;
     }
+    // int ans=0;
+    // evaluate_postfix(out, ans);
+    // printf("Result : %d\n", ans);
     return 0;
 }
 //Modification needed to support multi digit numbers
+//Evaluation method needs to be added

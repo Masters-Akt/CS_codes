@@ -7,9 +7,9 @@ struct node{
     struct node *next;
 };
 
-void create(struct node **h){
+void create(struct node **h, int n){
     struct node *curr, *ptr;
-    for(int i=0;i<5;i++){
+    for(int i=0;i<n;i++){
         curr = (struct node *)malloc(sizeof(struct node));
         scanf("%d", &curr->data);
         curr->next = NULL;
@@ -26,14 +26,12 @@ void create(struct node **h){
 }
 
 void display(struct node *h){
-    if(h == NULL){
-        return;
-    }
+    if(h == NULL) return;
     struct node *ptr;
     for(ptr=h; ptr->next!=h; ptr=ptr->next){
         printf("%d ", ptr->data);
     }
-    printf("\n");
+    printf("%d\n", ptr->data);
 }
 
 void insert(struct node **h, int v, int p){
@@ -45,12 +43,12 @@ void insert(struct node **h, int v, int p){
         *h = curr;
         curr->next = curr;
     }else if(p==0){
-        for(ptr = *h; ptr->next != *h; ptr = ptr->next);
-            curr->next = *h;
+        for(ptr=(*h); ptr->next!=(*h); ptr=ptr->next);
+            curr->next = (*h);
             ptr->next = curr;
-            *h = curr;
+            (*h) = curr;
     }else{
-        ptr = *h;
+        ptr = (*h);
         int i=1;
         while(i<p){
             ptr = ptr->next;
@@ -93,9 +91,20 @@ void delete(struct node **h, int p){
 
 int main(){
     struct node *head = NULL;
-    create(&head);
+    printf("Enter number of nodes: ");
+    int n;
+    scanf("%d", &n);
+    create(&head, n);
+    display(head);
+    printf("Enter value to be inserted and its position: ");
+    int v, pos;
+    scanf("%d %d", &v, &pos);
+    insert(&head, v, pos);
+    display(head);
+    printf("Enter position to be deleted: ");
+    scanf("%d", &pos);
+    delete(&head, pos);
     display(head);
     return 0;
 }
 // Remark: Work needed
-//Not complete
