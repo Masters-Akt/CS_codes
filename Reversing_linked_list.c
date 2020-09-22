@@ -9,15 +9,15 @@ struct node{
 
 struct node *head = NULL;
 
-void create(struct node *h, int n){
+void create(struct node **h, int n){
     struct node *curr, *ptr;
     printf("Enter elements:\n");
     for(int i=0;i<n;i++){
         curr = (struct node *)malloc(sizeof(struct node));
         scanf("%d", &curr->data);
         curr->next = NULL;
-        if(h==NULL){
-            h = curr;
+        if((*h)==NULL){
+            *h = curr;
             ptr = curr;
         }else{
             ptr->next = curr;
@@ -48,31 +48,32 @@ void reverse(struct node *h){
     h = prev;
 }
 
-struct node* reverse_using_recursion(struct node *p){
+struct node* reverse_using_recursion(struct node **p){
     printf("called\n");
-    if(p = NULL) return NULL;
-    if(p->next == NULL){
-        head = p;
-        return p;
+    if(*p = NULL) return NULL;
+    if((*p)->next == NULL){
+        head = *p;
+        return *p;
     }
-    struct node *q = reverse_using_recursion(p->next);
-    q->next = p;
-    p->next = NULL;
-    return p;
+    struct node *q = reverse_using_recursion(&((*p)->next));
+    q->next = *p;
+    (*p)->next = NULL;
+    return *p;
 }
 
 int main(){
     int n;
     printf("Enter number of nodes: ");
     scanf("%d", &n);
-    create(head, n);
+    create(&head, n);
     display(head);
-    // reverse(head);
-    // printf("After reversing:\n");
-    // display(head);
-    printf("Using recursion:\n");
-    reverse_using_recursion(head);
+    reverse(head);
+    printf("After reversing:\n");
     display(head);
+    //printf("Using recursion:\n");
+    //reverse_using_recursion(&head);
+    //display(head);
     return 0;
 }
 //Recursive approach not working
+//Some problem is there

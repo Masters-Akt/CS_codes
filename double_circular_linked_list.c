@@ -1,3 +1,4 @@
+//Kumar Ankit
 #include<stdio.h>
 #include<stdlib.h>
 
@@ -7,9 +8,9 @@ struct node{
     struct node *prev;
 };
 
-void create(struct node **h){
+void create(struct node **h, int n){
     struct node *curr, *ptr;
-    for(int i=0; i<5; i++){
+    for(int i=0; i<n; i++){
         curr = (struct node *)malloc(sizeof(struct node));
         scanf("%d", &curr->data);
         curr->next = curr->prev = NULL;
@@ -27,7 +28,11 @@ void create(struct node **h){
 }
 
 void display(struct node *h){
-
+    struct node *ptr;
+    for(ptr = h; ptr->next!=h; ptr=ptr->next){
+        printf("%d ", ptr->data);
+    }
+    printf("%d\n", ptr->data);
 }
 
 void insert(struct node **h, int v, int p){
@@ -63,7 +68,7 @@ void delete(struct node **h, int p){
         printf("Empty Linked List\n");
     }else{
         ptr = *h;
-        int i = 1;
+        int i = 0; //for zero based indexing positions
         while(i<p && ptr->next!=(*h)){
             ptr = ptr->next;
             i++;
@@ -88,6 +93,19 @@ void delete(struct node **h, int p){
 
 int main(){
     struct node *head = NULL;
+    printf("Enter Number of nodes: ");
+    int n;
+    scanf("%d", &n);
+    create(&head, n);
+    display(head);
+    printf("Enter value to be inserted and position: ");
+    int v, pos;
+    scanf("%d %d", &v, &pos);
+    insert(&head, v, pos);
+    display(head);
+    printf("Enter position to be deleted: ");
+    scanf("%d", &pos);
+    delete(&head, pos);
+    display(head);
     return 0;
 }
-//complete display function
