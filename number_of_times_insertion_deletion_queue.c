@@ -1,7 +1,7 @@
 //Kumar Ankit
 #include<stdio.h>
 #include<stdlib.h>
-#define MAX 20
+#define MAX 50
 
 typedef struct{
     int data[MAX];
@@ -82,10 +82,32 @@ void display(Queue q)
 int main(){
     Queue q1;
     q1.front = q1.rear = -1;
-    int p = insert(&q1, 12);
-    p = insert(&q1, 13);
-    int m;
-    int q = delete(&q1, &m);
-    q = delete2(&q1, &m);
+    printf("Enter number of insertions : ");
+    int n;
+    scanf("%d", &n);
+    for(int i=0;i<n;i++){
+        int x;
+        printf("Enter value to be inserted : ");
+        scanf("%d", &x);
+        for(int i=0;i<x;i++){
+            insert(&q1, x);
+        }
+    }
+    printf("Displaying queue : \n");
+    display(q1);
+    printf("Enter number of deletions : ");
+    scanf("%d", &n);
+    for(int i=0;i<n;i++){
+        int m;
+        delete2(&q1, &m);
+        int r=m-1;
+        while(r>0){
+            delete2(&q1, &m);
+            r--;
+        }
+    }
+    printf("Displaying queue: \n");
+    display(q1);
     return 0;
 }
+//try implementing directly in the function

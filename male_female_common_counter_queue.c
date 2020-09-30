@@ -82,10 +82,6 @@ void display(Queue q)
 int main(){
     Queue q1;
     q1.front = q1.rear = -1;
-    int p = insert(&q1, 12);
-    p = insert(&q1, 13);
-    int m;
-    int q = delete(&q1, &m);
-    q = delete2(&q1, &m);
+    
     return 0;
 }
