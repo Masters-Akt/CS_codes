@@ -1,4 +1,4 @@
-//Owner: Kumar Ankit
+//Kumar Ankit
 //Implemented stack using array
 #include<stdio.h>
 #include<stdlib.h>

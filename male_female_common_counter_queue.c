@@ -80,8 +80,11 @@ void display(Queue q)
 }
 
 int main(){
-    Queue q1;
-    q1.front = q1.rear = -1;
+    Queue male;
+    male.front = male.rear = -1;
+    Queue female;
+    female.front = female.rear = -1;
+    int checker = 0;
     
     return 0;
 }

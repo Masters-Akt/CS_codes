@@ -1,4 +1,4 @@
-//Owner : Kumar Ankit
+//Kumar Ankit
 //Balancing the brackets
 //Example Test Cases:
 /*
