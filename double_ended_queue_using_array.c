@@ -46,7 +46,7 @@ int insert(Dqueue *q, int v, int side){
     return 0;
 }
 
-int delete(Dqueue *q, int *m, int side){
+int del(Dqueue *q, int *m, int side){
     if(q->f == -1){ //Empty Q
         printf("Q is Empty\n");
         return 1;
@@ -64,12 +64,25 @@ int delete(Dqueue *q, int *m, int side){
     return 0;
 }
 
+void display(Dqueue q){
+    int i;
+    if (q.f == - 1)
+        printf("Queue is empty \n");
+    else{
+        for (i = q.f; i <= q.R; i++)
+            printf("%d ", q.data[i]);
+        printf("\n");
+    }
+}
+
 int main(){
     Dqueue q1;
     q1.f = q1.R = -1;
     int p = insert(&q1, 10, 0);
     p = insert(&q1, 20, 1);
+    display(q1);
     int m;
-    int q = delete(&q1, &m, 0);
+    int q = del(&q1, &m, 0);
+    display(q1);
     return 0;
 }

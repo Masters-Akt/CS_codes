@@ -23,16 +23,8 @@ int insert(Queue *q, int v){
     }
     return 0;
 }
-/*There are two cases for deletion in a queue:-
-Case 1:
-    directly move the front forward but this will waste space as the previous memories wont be used again.
-    Time complexity : O(1)
-Case 2:
-    don't move the front rather move all the elements 1 place leftwards, this will save the space
-    Time complexity : O(n)
+//work needed
 
-delete is case 1 and delete2 is case 2.
-*/
 int delete(Queue *q, int *m){
     if(q->front == -1){   //Empty Q
         printf("Q is empty\n");
@@ -66,13 +58,11 @@ int delete2(Queue *q, int *m){
     return 0;
 }
 
-void display(Queue q)
-{
+void display(Queue q){
     int i;
     if (q.front == - 1)
         printf("Queue is empty \n");
-    else
-    {
+    else{
         for (i = q.front; i <= q.rear; i++)
             printf("%d ", q.data[i]);
         printf("\n");
@@ -89,3 +79,4 @@ int main(){
     q = delete2(&q1, &m);
     return 0;
 }
+//incomplete
