@@ -23,7 +23,16 @@ int insert(Queue *q, int v){
     }
     return 0;
 }
-//work needed
+/*There are two cases for deletion in a queue:-
+Case 1:
+    directly move the front forward but this will space as the previous memories wont be used again.
+    Time Complexity : O(1)
+Case 2:
+    don't move the front rather move all the elements 1 place leftwards, this will save the space
+    Time Complexity : O(n)
+
+delete is case 1 and delete2 is case 2
+*/
 
 int delete(Queue *q, int *m){
     if(q->front == -1){   //Empty Q
@@ -79,4 +88,3 @@ int main(){
     q = delete2(&q1, &m);
     return 0;
 }
-//incomplete
