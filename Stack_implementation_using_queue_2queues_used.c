@@ -1,4 +1,6 @@
 //Kumar Ankit
+//Implemented using arrays
+//2 Queues are used.
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 20
@@ -8,6 +10,9 @@ typedef struct{
     int front;
     int rear;
 }Queue;
+
+Queue q[2];
+int Aq = 0; //Variable to keep track of active queue
 
 int insert(Queue *q, int v){
     if(q->rear == MAX-1){    //full Q
@@ -25,14 +30,15 @@ int insert(Queue *q, int v){
 }
 /*There are two cases for deletion in a queue:-
 Case 1:
-    directly move the front forward but this will waste space as the previous memories wont be used again.
-    Time complexity : O(1)
+    directly move the front forward but this will space as the previous memories wont be used again.
+    Time Complexity : O(1)
 Case 2:
     don't move the front rather move all the elements 1 place leftwards, this will save the space
-    Time complexity : O(n)
+    Time Complexity : O(n)
 
-delete is case 1 and delete2 is case 2.
+delete is case 1 and delete2 is case 2
 */
+
 int delete(Queue *q, int *m){
     if(q->front == -1){   //Empty Q
         printf("Q is empty\n");
@@ -66,26 +72,41 @@ int delete2(Queue *q, int *m){
     return 0;
 }
 
-void display(Queue q)
-{
+void display(Queue q){
     int i;
     if (q.front == - 1)
         printf("Queue is empty \n");
-    else
-    {
+    else{
         for (i = q.front; i <= q.rear; i++)
             printf("%d ", q.data[i]);
         printf("\n");
     }
 }
 
-int main(){
-    Queue male;
-    male.front = male.rear = -1;
-    Queue female;
-    female.front = female.rear = -1;
-    int checker = 0;
-    
+int isEmpty(Queue q){
+    return (q.front == -1)? 1 : 0;
+}
+
+int push(int v){
+    return insert(&q[Aq], v);
+}
+
+int pop(int *m){
+    int p = isEmpty(q[Aq]);
+    if(p) return p;
+    int n;
+    while(1){
+        p = delete(&q[Aq], &n);
+    }
+    *m = n;
+    Aq = (Aq+1)%2;
     return 0;
 }
-//incomplete
+
+int main(){
+    q[0].front = q[1].front = q[0].rear = q[1].rear = -1;
+    int t = push(10);
+    int m;
+    int r = pop(&m);
+    return 0;
+}
