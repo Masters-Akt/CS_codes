@@ -47,5 +47,11 @@ int main(){
     root->right = create_node(8);
     root->right->left = create_node(7);
     root->right->right = create_node(6);
+    printf("Inorder : ");
+    inorder(root);
+    printf("\nPreorder : ");
+    preorder(root);
+    printf("\nPostorder : ");
+    postorder(root);
     return 0;
 }
