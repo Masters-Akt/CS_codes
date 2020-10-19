@@ -82,6 +82,43 @@ void inorder(struct node *r){ //inorder traversal without using recursion
     }
 }
 
+void postorder(struct node *r){ //postorder traversal without using recursion
+    struct node *curr = r, *m, *k;
+    STACK S1;
+    S1.top = -1;
+    while(curr!=NULL){
+        if(curr->right != NULL){
+            push(&S1, curr->right);
+        }
+        push(&S1, curr);
+        curr = curr->left;
+    }
+    while(!(isEmpty(S1))){
+        pop(&S1, &m);
+        if(m->right == NULL){
+            printf("%d ", m->data);
+        }else if(isEmpty(S1)){
+            printf("%d ", m->data);
+        }else{
+            pop(&S1, &k);
+            if(m->right != k){
+                printf("%d ", m->data);
+                push(&S1, k);
+            }else{
+                push(&S1, m);
+                curr = k;
+                while(curr != NULL){
+                    if(curr->right != NULL){
+                        push(&S1, curr->right);
+                    }
+                    push(&S1, curr);
+                    curr = curr->left;
+                }
+            }
+        }
+    }
+}
+
 int main(){
     struct node *root = NULL;
     root = create_node(9);
@@ -97,5 +134,7 @@ int main(){
     preorder(root);
     printf("\nInorder Traversal without using recursion : ");
     inorder(root);
+    printf("\nPostorder Traversal without using recursion : ");
+    postorder(root);
     return 0;
 }
