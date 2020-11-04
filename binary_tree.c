@@ -71,6 +71,14 @@ void postorder(struct node *r){ //postorder search using recursion
     printf("%d ", r->data);
 }
 
+void deleteTree(struct node *r){
+    if(r == NULL) return;
+    deleteTree(r->left);
+    deleteTree(r->right);
+    printf("Deleting node : %d ",r->data);
+    free(r);
+}
+
 int main(){
     struct node *root = NULL;
     root = create_node(9);
@@ -86,4 +94,11 @@ int main(){
     levelOrder(root);
     printf("\nReverse level order traversal : ");
     reverseLevelOrder(root);
+    printf("Deleting right subtree : \n");
+    printf("Before deletion : ");
+    inorder(root);
+    printf("\nAfter deletion  of right subtree : ");
+    deleteTree(root->right);
+    inorder(root);
+    return 0;
 }
