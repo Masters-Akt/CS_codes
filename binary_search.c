@@ -23,7 +23,7 @@ int bsearch(int a[], int l, int u, int v){ //using recursion
 }
 
 int main(){
-    int a[10] = {23, 45, 56, 67, 78, 89, 20, 65, 62, 11};
+    int a[] = {23, 45, 56, 67, 78, 89, 20, 65, 62, 11};
     int value = 62;
     int index = binary_search(a, 0, 9, value);
     if(index==-1) printf("Not found!");
