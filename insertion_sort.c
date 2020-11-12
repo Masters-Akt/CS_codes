@@ -4,7 +4,7 @@
 void insertion_sort(int a[], int size){
     int i, j, temp;
     for(i=1;i<size;i++){
-        int temp = a[i];
+        temp = a[i];
         for(j=i-1;j>=0;j--){
             if(a[j]>temp){
                 a[j+1] = a[j];
