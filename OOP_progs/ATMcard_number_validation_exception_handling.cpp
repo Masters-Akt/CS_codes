@@ -30,10 +30,15 @@ bool checksum(string s){
 }
 
 void check_card(string s){
-    if(s.length()!=16 || s[0]!='5' || !(s[1]=='0' || s[1]=='1') || checksum(s)==false || (s[15]=='0' && s[14]=='0' && s[13]=='0' && s[12]=='0')){
-        throw "The card is Not Valid and rejected!";
-    }else
-    {
+    if(s.length()!=16){
+        throw "The length is not 16 hencce invalid!";
+    }else if(s[0]!='5' || !(s[1]=='0' || s[1]=='1')){
+        throw "First 2 digits can be either 50 or 51 hence invalid!";
+    }else if(checksum(s)==false){
+        throw "The odd and even position sum is not the same hence invalid!";
+    }else if(s[15]=='0' && s[14]=='0' && s[13]=='0' && s[12]=='0'){
+        throw "Last four digits cam't be zero altogether hence invalid!";
+    }else{
         throw "The card is Valid and accepted!";
     }
     
