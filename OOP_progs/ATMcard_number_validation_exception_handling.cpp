@@ -31,10 +31,10 @@ bool checksum(string s){
 
 void check_card(string s){
     if(s.length()!=16 || s[0]!='5' || !(s[1]=='0' || s[1]=='1') || checksum(s)==false || (s[15]=='0' && s[14]=='0' && s[13]=='0' && s[12]=='0')){
-        throw "Not Valid";
+        throw "The card is Not Valid and rejected!";
     }else
     {
-        throw "Valid";
+        throw "The card is Valid and accepted!";
     }
     
 }
