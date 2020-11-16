@@ -26,6 +26,7 @@ int insert(Queue *q, int v){
         q->rear->next = curr;
         q->rear = curr;
     }
+    printf("%d inserted\n", v);
     return 0;
 }
 
@@ -43,6 +44,7 @@ int delete(Queue *q, int *m){  //Can return either the whole node or just the da
         q->front = q->front->next;
         free(ptr);
     }
+    printf("%d deleted\n", *m);
     return 0;
 }
 
@@ -51,6 +53,7 @@ int main(){
     Queue q1;
     q1.front = q1.rear = NULL;
     int p = insert(&q1, 10);
+    p = insert(&q1, 20);
     int q = delete(&q1, &m);
     return 0;
 }
