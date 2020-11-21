@@ -69,15 +69,19 @@ void display(Cqueue q){
 int main(){
     Cqueue q1;
     q1.f = q1.r = -1;
+    printf("Inserting 5 elements : 10, 15, 20, 25, 30 : \n");
     int p = insert(&q1, 10);
     p = insert(&q1, 15);
     p = insert(&q1, 20);
     p = insert(&q1, 25);
     p = insert(&q1, 30);
+    printf("Queue is : ");
     display(q1);
+    printf("Deleting 1 element : \nQueue is : ");
     int m;
     int q = delete(&q1, &m);
     display(q1);
+    printf("Inserting 35 : \nQueue is : ");
     p = insert(&q1, 35);
     display(q1);
     return 0;
