@@ -1,0 +1,12 @@
+var num1 = 10;
+var num2 = 12;
+console.log(num1 + num2);
+console.log(num1 * num2);
+var answer = num1 > num2;
+console.log(answer);
+var sellingPrice = 199;
+var listingPrice = 799;
+var discountPercent = (listingPrice - sellingPrice)/listingPrice * 100;
+console.log("Discount Percentage = "+discountPercent);
+var displayDiscountPercentage = Math.round(discountPercent);
+console.log(displayDiscountPercentage + "% off");
