@@ -1,2 +1,2 @@
 # CS_codes
-A repository containing all Computer Science Codes in different fields I practice!
+A repository containing all the practice files and codes of Computer Science in different fields which I practice!
