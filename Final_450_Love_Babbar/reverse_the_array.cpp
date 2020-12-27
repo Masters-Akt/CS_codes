@@ -2,8 +2,15 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void iterative_method(int a[], int start, int end){
-    int n = end+1;
+void recursive_method(int a[], int start, int end){
+    if(start>=end) return;
+    int temp = a[start];
+    a[start] = a[end];
+    a[end] = temp;
+    recursive_method(a, start+1, end-1);
+}
+
+void iterative_method(int a[], int start, int end){ //O(n)
     while(start<end){
         int temp = a[start];
         a[start] = a[end];
@@ -11,10 +18,6 @@ void iterative_method(int a[], int start, int end){
         start++;
         end--;
     }
-    for(int i=0;i<n;i++){
-        cout<<a[i]<<" ";
-    }
-    cout<<endl;
 }
 
 string first_try(string s){
@@ -25,6 +28,13 @@ string first_try(string s){
     return ans;
 }
 
+void print_array(int a[], int n){
+    for(int i=0;i<n;i++){
+        cout<<a[i]<<" ";
+    }
+    cout<<endl;
+}
+
 int main(){
     string s;
     s = "sadggvcvjkabj";
@@ -32,5 +42,8 @@ int main(){
     int a[] = {1,2,3,4,5,6,7,8,9,10};
     int n = 10;
     iterative_method(a, 0, n-1);
+    print_array(a, n);
+    recursive_method(a, 0, n-1);
+    print_array(a, n);
     return 0;
 }
