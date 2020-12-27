@@ -2,6 +2,14 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+/*
+Using python list slicing:
+
+def reverseList(A):
+  print( A[::-1])
+
+*/
+
 void recursive_method(int a[], int start, int end){
     if(start>=end) return;
     int temp = a[start];
