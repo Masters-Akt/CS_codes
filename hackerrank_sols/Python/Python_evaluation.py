@@ -1,0 +1,2 @@
+#Kumar Ankit
+(eval(input()))
