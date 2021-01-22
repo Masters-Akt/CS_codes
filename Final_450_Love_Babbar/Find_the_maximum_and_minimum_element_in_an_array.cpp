@@ -40,7 +40,7 @@ int first_try(int a, int b, int c){
     }
 }
 
-struct Pair minmaxtournament(int arr[], int low, int high){
+struct Pair minmaxtournament(int arr[], int low, int high){ //tournament method
     struct Pair minmax;
     if(low==high){
         minmax.min = arr[low];
