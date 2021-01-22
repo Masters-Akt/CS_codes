@@ -67,6 +67,36 @@ struct Pair minmaxtournament(int arr[], int low, int high){ //tournament method
     return minmax;
 }
 
+struct Pair minmaxpair(int arr[], int n){ //Compare in pairs
+    struct Pair minmax;
+    int i;
+    if(n%2==0){
+        if(arr[0]>arr[1]){
+            minmax.max = arr[0];
+            minmax.min = arr[1];
+        }else{
+            minmax.max = arr[1];
+            minmax.min = arr[0];
+        }
+        i=2;
+    }else{
+        minmax.min = arr[0];
+        minmax.max = arr[0];
+        i=1;
+    }
+    while(i<n-1){
+        if(arr[i]>arr[i+1]){
+            if(arr[i]>minmax.max) minmax.max = arr[i];
+            if(arr[i+1]<minmax.min) minmax.min = arr[i+1];
+        }else{
+            if(arr[i+1]>minmax.max) minmax.max = arr[i+1];
+            if(arr[i]<minmax.min) minmax.min = arr[i];
+        }
+        i+=2;
+    }
+    return minmax;
+}
+
 int main(){
     int a=1, b=2, c=3;
     cout<<"Getting middle element:\n";
@@ -76,5 +106,7 @@ int main(){
     cout<<"Maximum = "<<minmax.max<<" Minimum = "<<minmax.min<<endl;
     struct Pair minmax2 = minmaxtournament(arr, 0, 9);
     cout<<"Maximum = "<<minmax2.max<<" Minimum = "<<minmax2.min<<endl;
+    struct Pair minmax3 = minmaxpair(arr, 10);
+    cout<<"Maximum = "<<minmax3.max<<" Minimum = "<<minmax3.min<<endl;
     return 0;
 }
