@@ -1,0 +1,13 @@
+body {
+    background-color: aqua;
+}
+
+table {
+    border: 3;
+    padding: 3;
+    letter-spacing: 3;
+    border-spacing: 3;
+    word-spacing: 3;
+    background-color: yellow;
+    
+}
