@@ -1,40 +1,40 @@
+import java.io.*;
 import java.util.*;
 
-class Student{
-    String name;
-    String stu_id;
-    int score;
-    public Student(){
-        this(" ", " ", 0);
-    }
-    public Student(String initName, String initId, int initScore){
-        name = initName;
-        stu_id = initId;
-        score = initScore;
-    }
-}
-
-public class lab6q5 {
-    public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter Number of students : ");
-        int n = sc.nextInt();
-        System.out.println("Enter Student name, student id, and score of all students one by one :");
-        Student stu = new Student();
-        Student min = new Student(" ", " ", 100);
-        System.out.println("All students list : ");
-        for(int i=0;i<n;i++){
-            stu.name = sc.next();
-            stu.stu_id = sc.next();
-            stu.score = sc.nextInt();
-            System.out.println("Name = "+stu.name+" ID = "+stu.stu_id+" Score = "+stu.score);
-            if(min.score>stu.score){
-                min.name = stu.name;
-                min.stu_id = stu.stu_id;
-                min.score = stu.score;
-            }
+class lab6q5{
+        static int roll[];
+        static String name[];
+        static float cgpa[];
+        public static void main(String args[])throws IOException{
+                Scanner sc=new Scanner(System.in);
+                System.out.print("Enter no. of students : ");
+                int n=sc.nextInt();
+                roll = new int[n];
+                name = new String[n];
+                cgpa = new float[n];
+                System.out.println("Enter details :");
+                for(int i=0;i<n;i++){
+                        System.out.print("Enter roll of student "+(i+1)+" : ");
+                        roll[i] = sc.nextInt();
+                        System.out.print("Enter name for student "+(i+1)+" : ");
+                        sc.nextLine();
+                        name[i] = sc.nextLine();
+                        System.out.print("Enter cgpa for student "+(i+1)+" : ");
+                        cgpa[i] = sc.nextFloat();
+                }
+                System.out.println("SNo.\tRoll No.\tName\tCGPA");
+                for(int i=0;i<n;i++)
+                        System.out.println((i+1)+"\t"+roll[i]+"\t\t"+name[i]+"\t"+cgpa[i]);
+                float min=cgpa[0];
+                for(int i=0;i<n;i++){
+                        if(min>=cgpa[i])
+                                min=cgpa[i];
+                }
+                System.out.println("Student(s) with lowest cgpa :");
+                for(int i=0;i<n;i++){
+                        if(cgpa[i]==min)
+                                System.out.println(name[i]);
+                }
+                sc.close();
         }
-        System.out.println("Minimum score is "+min.score+" whose name is "+min.name + " and student id is "+min.stu_id);
-        sc.close();
-    }
 }

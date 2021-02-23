@@ -1,7 +1,7 @@
 import java.util.*;
 
 class Rectangle{
-    static double length, breadth, area;
+    static double length, breadth, area, perimeter;
     void read(){
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter length : ");
@@ -13,8 +13,11 @@ class Rectangle{
     void calculate_area(){
         area = length*breadth;
     }
+    void calculate_perimeter(){
+        perimeter = 2*(length+breadth);
+    }
     void display(){
-        System.out.println("Area = "+area);
+        System.out.println("Area = "+area+" Perimeter = "+perimeter);
     }
 }
 
@@ -23,6 +26,7 @@ public class lab6q4{
         Rectangle obj = new Rectangle();
         obj.read();
         obj.calculate_area();
+        obj.calculate_perimeter();
         obj.display();
     }
 }
