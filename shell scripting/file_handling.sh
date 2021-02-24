@@ -10,6 +10,7 @@ case "$option" in
 	1)
 		echo "Enter file name to be created:"
 		read file
+		echo "Enter content to the file:"
 		cat > file
 		;;
 	2)
@@ -20,6 +21,7 @@ case "$option" in
 		if [ -f $file1 ]
 		then
 			cp $file1 $file2
+			echo "Successfully copied."
 		else
 			echo "$file1 does not exist."
 		fi
@@ -30,6 +32,7 @@ case "$option" in
 		if [ -f $file ]
 		then
 			rm -i $file
+			echo "File removed."
 		else
 			echo "$file file does not exist."
 		fi
@@ -42,6 +45,7 @@ case "$option" in
 		if [ -f $file ]
 		then
 			mv -i $file $newfile
+			echo "File renamed."
 		else
 			echo "$file file does not exist."
 		fi
