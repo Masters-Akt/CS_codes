@@ -1,0 +1,15 @@
+DECLARE
+	n number(2);
+	i NUMBER(1);
+	j NUMBER(1);
+BEGIN
+	n:=&n;
+	FOR i IN 1..n
+	LOOP
+		FOR j IN 1..i
+		LOOP
+			DBMS_OUTPUT.PUT('* ');
+		END LOOP;
+		DBMS_OUTPUT.NEW_LINE;
+	END LOOP;
+END;
