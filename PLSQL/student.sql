@@ -1,3 +1,4 @@
+select * from registration;
 DECLARE
 	sid registration.studentid%type;
 	cs_id registration.csid%type;

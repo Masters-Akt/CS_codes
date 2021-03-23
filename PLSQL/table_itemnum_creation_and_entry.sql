@@ -8,5 +8,3 @@ BEGIN
 		INSERT INTO item VALUES(i);
 	END LOOP;
 END;
-
-select * from item;
