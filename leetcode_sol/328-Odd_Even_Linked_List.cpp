@@ -8,6 +8,9 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+//Note: Same can be done using two different linked lists and connecting them
+
 class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
