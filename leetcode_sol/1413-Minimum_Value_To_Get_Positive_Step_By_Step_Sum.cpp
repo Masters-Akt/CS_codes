@@ -8,6 +8,6 @@ public:
             m = min(m,sum);
         }
         if(m>0) return 1;
-        return m*(-1)+1;
+        return 1-m;
     }
 };
