@@ -1,3 +1,4 @@
+//Method 1
 class Solution {
 public:
     string intToRoman(int num) {
@@ -65,5 +66,17 @@ public:
             }
         }
         return ans;
+    }
+};
+
+//Method 2
+class Solution {
+public:
+    string intToRoman(int num) {
+        string m[] = {"", "M", "MM", "MMM"};
+        string c[] = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+        string t[] = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+        string o[] = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        return ""+m[num/1000]+c[(num%1000)/100]+t[(num%100)/10]+o[num%10];
     }
 };
