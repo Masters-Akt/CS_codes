@@ -11,3 +11,16 @@ public:
         return ans;
     }
 };
+
+//Method 2 - O(N)
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+       int maxdif = 0, m = INT_MAX;
+        for(int i=0;i<prices.size();i++){
+            m = min(m, prices[i]);
+            maxdif = max(maxdif, prices[i]-m);
+        }
+        return maxdif;
+    }
+};
