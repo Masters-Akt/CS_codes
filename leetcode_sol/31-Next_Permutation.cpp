@@ -29,3 +29,31 @@ public:
         }
     }
 };
+
+//Method 3 - Efficient O(N)
+/*
+Algorithm:
+1. Search for the first digit which is less than its immediate right starting from rear end
+2. Search for a digit which is greater than the above found digit
+3. Swap both of them
+4. Reverse everything on the right of first found digit
+Edge Case: If no such digit is found in first step, simply reverse the whole number
+*/
+class Solution {
+public:
+    void nextPermutation(vector<int>& nums) {
+        int i;
+        for(i=nums.size()-2;i>=0;i--){
+            if(nums[i]<nums[i+1]) break;
+        }
+        if(i>=0){
+            for(int j=nums.size()-1;j>i;j--){
+                if(nums[j]>nums[i]){
+                    swap(nums[i], nums[j]);
+                    break;
+                }
+            }
+        }
+        reverse(nums.begin()+i+1, nums.end());
+    }
+};
