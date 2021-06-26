@@ -1,3 +1,4 @@
+//Method 1 - Using sorting
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
@@ -17,5 +18,20 @@ public:
             n=nums[nums.size()-1];
         }
         return n;
+    }
+};
+
+//Method 2 - Moore's Voting Algorithm
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        //Moore's Voting Algorithm - O(N)
+        int count = 0, candidate = 0;
+        for(int num : nums){
+            if(count==0) candidate = num;
+            if(num==candidate) count++;
+            else count--;
+        }
+        return candidate;
     }
 };
