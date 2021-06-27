@@ -29,3 +29,16 @@ public:
         return countPaths(i, j, m, n, dp);
     }
 };
+
+//Method 3 - Combinatorics - Most Efficient - Linear - O(n-1) or O(m-1)
+class Solution {
+public:
+    int uniquePaths(int m, int n) {
+        //Combinatorics
+        int N = m+n-2;
+        int r = m-1; //Or n-1, both are correct
+        double ans = 1.0;
+        for(int i=1;i<=r;i++) ans = ans*(N-r+i)/i;
+        return (int)ans;
+    }
+};
