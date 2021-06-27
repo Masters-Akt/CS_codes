@@ -1,4 +1,4 @@
-//Method 1 - Recursion - Gives TLE
+//Method 1 - Recursion - Gives TLE - TC=exponential SC=exponential
 class Solution {
 public:
     int countPaths(int i, int j, int n, int m){
@@ -13,7 +13,7 @@ public:
     }
 };
 
-//Method 2 - Dynamic Problem Approach
+//Method 2 - Dynamic Problem Approach - TC=O(mxn) SC~=O(mxn)
 class Solution {
 public:
     int countPaths(int i, int j, int m, int n, vector<vector<int>> &dp){
