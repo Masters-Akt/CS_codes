@@ -1,4 +1,4 @@
-//Method 1 - Brute Force
+//Method 1 - Brute Force - TC = O(N2), SC = O(1) 
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
@@ -12,6 +12,24 @@ public:
                     return sol;
                 }
             }
+        }
+        return sol;
+    }
+};
+
+//Method 2 - Hash Table
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        vector<int> sol;
+        unordered_map<int,int> m;
+        for(int i=0;i<nums.size();i++){
+            if(m.find(target-nums[i])!=m.end()){
+                sol.push_back(m[target-nums[i]]);
+                sol.push_back(i);
+                return sol;
+            }
+            m[nums[i]] = i;
         }
         return sol;
     }
