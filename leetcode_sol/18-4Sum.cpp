@@ -1,4 +1,4 @@
-//sorting + 2-pointers
+//sorting + 2-pointers - O(N3)
 class Solution {
 public:
     vector<vector<int>> fourSum(vector<int>& nums, int target) {
