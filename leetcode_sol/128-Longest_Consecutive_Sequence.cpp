@@ -1,3 +1,4 @@
+//Method 1
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
@@ -19,5 +20,27 @@ public:
         }
         cm = max(c,cm);
         return cm;
+    }
+};
+
+//Method 2 - Hashset - O(N) as hasset retrieval is O(1) in average case
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        //Hash Set
+        set<int> hashset;
+        for(int num: nums) hashset.insert(num);
+        int longest_streak = 0;
+        for(int num: nums){
+            if(!hashset.count(num-1)){
+                int curr_streak = 1, currnum = num;
+                while(hashset.count(currnum+1)){
+                    currnum++;
+                    curr_streak++;
+                }
+                longest_streak = max(longest_streak, curr_streak);
+            }
+        }
+        return longest_streak;
     }
 };
