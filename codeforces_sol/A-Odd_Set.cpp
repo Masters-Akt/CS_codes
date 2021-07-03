@@ -5,14 +5,13 @@ using namespace std;
 void kumar_ankit(){
     int n;
 	cin>>n;
-	int o=0, e=0;
+	int c=0;
 	for(int i=0;i<2*n;i++){
 		int x;
 		cin>>x;
-		if(x%2==0) e++;
-		else o++;
+		if(x&1) c++;
 	}
-	if(e>=n && o>=n) cout<<"YES\n";
+	if(c==n) cout<<"YES\n";
 	else cout<<"NO\n";
 }
 
