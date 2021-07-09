@@ -6,17 +6,14 @@ int main(){
     scanf("%d", &n);
     printf("Enter elements : ");
     int a[100];
+    int prod = 1;
     for(int i=0;i<n;i++){
         scanf("%d", &a[i]);
+        prod*=a[i];
     }
+    printf("Required output is : ");
     for(int i=0;i<n;i++){
-        int temp = 1;
-        for(int j=0;j<n;j++){
-            if(i!=j){
-                temp*=a[j];
-            }
-        }
-        printf("%d ", temp);
+        printf("%d ", prod/a[i]);
     }
     return 0;
 }
