@@ -16,6 +16,6 @@ int main(){
         }
     }
     if(k==-1) k=n-1;
-    printf("The breaking point index is %d.", k);
+    printf("The breaking point index is %d.", k+1);
     return 0;
 }
