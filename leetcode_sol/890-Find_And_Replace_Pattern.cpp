@@ -1,3 +1,4 @@
+//Method 1
 class Solution {
 public:
     vector<string> findAndReplacePattern(vector<string>& words, string pattern) {
@@ -19,6 +20,26 @@ public:
                 if(check) ans.push_back(words[i]);
             }
         }
+        return ans;
+    }
+};
+
+//Method 2
+class Solution {
+public:
+    string mapfn(string s){
+        unordered_map<char, int> m;
+        for(char c : s) if(!m.count(c)) m[c]=m.size();
+        for(int i=0;i<s.size();i++){
+            s[i] = 'a' + m[s[i]];
+        }
+        return s;
+    }
+    
+    vector<string> findAndReplacePattern(vector<string>& words, string pattern) {
+        vector<string> ans;
+        string p = mapfn(pattern);
+        for(string s : words) if(mapfn(s)==p) ans.push_back(s);
         return ans;
     }
 };
