@@ -9,7 +9,8 @@ public:
 
 //Method 2
 //Generate all permutations, then search for the current one and return the next one
-//Time Complexity = O(N!*N)
+//Time Complexity = O(N!)
+//Space Complexity = O(N)
 //Gives TLE
 class Solution {
 public:
@@ -30,7 +31,7 @@ public:
     }
 };
 
-//Method 3 - Efficient O(N)
+//Method 3 - Efficient O(N) - Single Pass Approach
 /*
 Algorithm:
 1. Search for the first digit which is less than its immediate right starting from rear end
