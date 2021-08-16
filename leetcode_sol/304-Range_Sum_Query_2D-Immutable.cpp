@@ -1,4 +1,4 @@
-//Method 1 - Brute Force - O(N2) - TLE
+//Method 1 - Brute Force - O(M*N) - TLE
 
 class NumMatrix {
 public:
