@@ -13,7 +13,6 @@ public:
         for(int i=0;i<s.size();i++){
             int start = hash[s[i]-'a'][0];
             int end = hash[s[i]-'a'][1];
-            cout<<start<<" "<<end<<" ";
             if(end==s.size()-1){
                 ans.push_back(end-start+1);
                 break;
