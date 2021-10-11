@@ -17,3 +17,21 @@ public:
         return c;
     }
 };
+
+//Method - O(N)
+class Solution {
+public:
+    int minFlips(string target) {
+        int i = 0, c = 0;
+        char check = '0';
+        while(i<target.size()){
+            if(target[i]!=check){
+                c++;
+                if(check=='0') check = '1';
+                else check = '0';
+            }
+            i++;
+        }
+        return c;
+    }
+};
