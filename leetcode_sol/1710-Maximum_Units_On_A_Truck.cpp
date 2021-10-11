@@ -1,3 +1,4 @@
+//M-1
 class Solution {
 public:
     int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
@@ -17,6 +18,26 @@ public:
                 break;
             }
             i--;
+        }
+        return ans;
+    }
+};
+
+//M-2
+class Solution {
+public:
+    static bool myfunc(vector<int>& a, vector<int>& b){
+        return a[1]>b[1];
+    }
+    
+    int maximumUnits(vector<vector<int>>& boxTypes, int truckSize) {
+        sort(boxTypes.begin(), boxTypes.end(), myfunc);
+        int ans = 0;
+        for(auto box: boxTypes){
+            int temp = min(box[0], truckSize);
+            ans+=box[1]*temp;
+            truckSize-=temp;
+            if(!truckSize) break;
         }
         return ans;
     }
