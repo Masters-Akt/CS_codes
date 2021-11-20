@@ -36,3 +36,13 @@ public:
         return *begin(s);
     }
 };
+
+//Method 4 - XOR - TC = O(N) SC = O(1)
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int ans = 0;
+        for(auto x: nums) ans^=x; //a^a=0
+        return ans;
+    }
+};
