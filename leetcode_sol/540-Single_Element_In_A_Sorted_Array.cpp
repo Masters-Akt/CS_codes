@@ -23,3 +23,16 @@ public:
         return -1;
     }
 };
+
+//Method 3 - Hashset - TC = O(N) SC = O(N)
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        unordered_set<int> s;
+        for(auto x: nums){
+            if(s.count(x)) s.erase(x);
+            else s.insert(x);
+        }
+        return *begin(s);
+    }
+};
