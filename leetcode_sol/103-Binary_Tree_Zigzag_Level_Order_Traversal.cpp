@@ -27,12 +27,8 @@ public:
                 if(x->right) q.push(x->right);
                 temp.push_back(x->val);
             }
-            if(flag){
-                flag = false;
-            }else{
-                reverse(temp.begin(), temp.end());
-                flag = true;
-            }
+            if(!flag) reverse(temp.begin(), temp.end());
+            flag = !flag;
             ans.push_back(temp);
         }
         return ans;
