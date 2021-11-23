@@ -75,3 +75,21 @@ public:
         return -1;
     }
 };
+
+//Method 7 - Binary Search 2nd approach - TC = O(logN) SC = O(1)
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int left = 0, right = nums.size()-1, ans;
+        while(left<=right){
+            int mid = (left+right)/2;
+            if(mid%2==1) mid--;
+            if(mid+1<nums.size() && nums[mid]==nums[mid+1]) left = mid+2;
+            else{
+                right = mid-1;
+                ans = nums[mid];
+            }
+        }
+        return ans;
+    }
+};
