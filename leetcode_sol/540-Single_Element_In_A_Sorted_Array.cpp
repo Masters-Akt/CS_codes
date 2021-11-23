@@ -55,3 +55,23 @@ public:
         return nums.back();
     }
 };
+
+//Method 6 - Binary Search - TC = O(logN) SC = O(1)
+class Solution {
+public:
+    int singleNonDuplicate(vector<int>& nums) {
+        int left=0, right=nums.size()-1;
+        while(left<=right){
+            int mid = (left+right)/2;
+            bool checkhalfeven = (mid-left)%2==0;
+            if(mid+1<nums.size() && nums[mid]==nums[mid+1]){
+                if(checkhalfeven) left = mid+2;
+                else right = mid-1;
+            }else if(mid && nums[mid]==nums[mid-1]){
+                if(checkhalfeven) right = mid-2;
+                else left = mid+1;
+            }else return nums[mid];
+        }
+        return -1;
+    }
+};
