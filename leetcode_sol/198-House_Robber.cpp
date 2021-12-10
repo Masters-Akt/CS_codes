@@ -34,7 +34,7 @@ public:
     }
 };
 
-//Iterative DP
+//Iterative 1-D DP
 class Solution {
 public:
     int rob(vector<int>& nums) {
@@ -45,5 +45,20 @@ public:
             dp[i] = max(nums[i]+dp[i+2], dp[i+1]);
         }
         return dp[0];
+    }
+};
+
+//No space DP
+class Solution {
+public:
+    int rob(vector<int>& nums) {
+        int n = nums.size();
+        int adj = 0, nextadj = 0;
+        for(int i=n-1;i>=0;i--){
+            int curr = max(nums[i] + nextadj, adj);
+            nextadj = adj;
+            adj = curr;
+        }
+        return adj;
     }
 };
