@@ -15,5 +15,8 @@ public:
             if(palin(words[i])) return words[i];
         }
         return "";
+        //for(auto &it: words){
+        //    if(firstPalindrome(it)) return true;
+        //}
     }
 };
