@@ -10,7 +10,7 @@
  */
 
 //Method 1
-/*
+
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
@@ -28,7 +28,7 @@ public:
         return ans;
     }
 };
-*/
+
 
 //Method 2
 /**
