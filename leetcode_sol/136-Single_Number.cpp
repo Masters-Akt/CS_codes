@@ -9,4 +9,4 @@ public:
         if(nums[nums.size()-1]!=nums[nums.size()-2]) return nums[nums.size()-1];
         return 0;
     }
-};1
+};
