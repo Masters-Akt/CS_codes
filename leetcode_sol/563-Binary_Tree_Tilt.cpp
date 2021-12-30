@@ -1,3 +1,4 @@
+//TC = O(N) SC = O(N) stack space
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -11,7 +12,7 @@
  */
 class Solution {
 private:
-    int solve(TreeNode* root, int& s){
+    int solve(TreeNode* root, int& s){ //function return subtree sum
         if(!root) return 0;
         int leftSum = solve(root->left, s);
         int rightSum = solve(root->right, s);
