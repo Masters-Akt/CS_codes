@@ -7,6 +7,22 @@ public:
     }
 };
 
+//Memoization
+class Solution {
+private:
+    int solve(int n, vector<int>& dp){
+        if(dp[n]!=-1) return dp[n];
+        return dp[n] = solve(n-1, dp)+solve(n-2, dp);
+    }
+public:
+    int climbStairs(int n) {
+        vector<int> dp(46, -1);
+        dp[0]=1;
+        dp[1]=1;
+        return solve(n, dp);
+    }
+};
+
 //Method optimized
 class Solution {
 public:
