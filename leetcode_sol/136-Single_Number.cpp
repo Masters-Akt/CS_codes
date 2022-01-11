@@ -1,3 +1,4 @@
+//O(nlogn)
 class Solution {
 public:
     int singleNumber(vector<int>& nums) {
@@ -8,5 +9,15 @@ public:
         }
         if(nums[nums.size()-1]!=nums[nums.size()-2]) return nums[nums.size()-1];
         return 0;
+    }
+};
+
+//O(n)
+class Solution {
+public:
+    int singleNumber(vector<int>& nums) {
+        int xo = 0;
+        for(int x: nums) xo^=x;
+        return xo;
     }
 };
