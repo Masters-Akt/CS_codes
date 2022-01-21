@@ -29,3 +29,20 @@ public:
         return -1;
     }
 };
+
+//More optimized
+class Solution {
+public:
+    int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
+        int remBal = 0, start = 0, curBal = 0;
+        for(int i=0;i<cost.size();i++){
+            curBal+=(gas[i]-cost[i]);
+            if(curBal<0){
+                start = i+1;
+                remBal+=curBal;
+                curBal = 0;
+            }
+        }
+        return curBal+remBal>=0 ? start : -1;
+    }
+};
