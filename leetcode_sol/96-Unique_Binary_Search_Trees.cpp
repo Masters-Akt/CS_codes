@@ -1,3 +1,19 @@
+//M1 - Recursion - TLE
+class Solution {
+public:
+    int numTrees(int n) {
+        if(n==1) return 1;
+        int ans = 0;
+        for(int i=1;i<=n;i++){
+            if(i==1) ans+=numTrees(n-i);
+            else if(i==n) ans+=numTrees(i-1);
+            else ans+=(numTrees(i-1)*numTrees(n-i));
+        }
+        return ans;
+    }
+};
+
+//M2 - Memoization
 class Solution {
 private:
     int numTrees(int n, vector<int>& dp){
