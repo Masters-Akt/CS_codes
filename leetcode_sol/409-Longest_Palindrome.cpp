@@ -1,3 +1,4 @@
+//M1
 class Solution {
 public:
     int longestPalindrome(string s) {
@@ -31,5 +32,27 @@ public:
         }
         if(!check) return sumeven;
         return sumeven+sumodd+1;
+    }
+};
+
+//M2 - better
+class Solution {
+public:
+    int longestPalindrome(string s) {
+        unordered_map<char, int> m;
+        for(char x: s) m[x]++;
+        int odd = 0, ans = 0;
+        for(auto x: m){
+            if(x.second%2==0) ans+=x.second;
+            else{
+                if(odd==0){
+                    odd++;
+                    ans+=x.second;
+                }else{
+                    ans+=x.second-1;   
+                }
+            }
+        }
+        return ans;
     }
 };
