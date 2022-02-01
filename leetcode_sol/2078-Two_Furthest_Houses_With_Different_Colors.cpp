@@ -11,3 +11,14 @@ public:
         return solve(colors, 0, colors.size()-1);
     }
 };
+
+//M2
+class Solution {
+public:
+    int maxDistance(vector<int>& colors) {
+        int i=0, j=colors.size()-1;
+        while(colors[i]==colors[colors.size()-1]) i++;
+        while(colors[j]==colors[0]) j--;
+        return max(j, (int)colors.size()-i-1);
+    }
+};
