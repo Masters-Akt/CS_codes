@@ -4,7 +4,7 @@ public:
         int ans = 0;
         queue<int> q;
         q.push(start);
-        map<int, bool> m;
+        unordered_map<int, bool> m;
         while(!q.empty()){
             int s = q.size();
             while(s--){
