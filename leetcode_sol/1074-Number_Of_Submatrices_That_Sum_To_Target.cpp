@@ -26,3 +26,28 @@ public:
         return ans;
     }
 };
+
+//AC using map
+class Solution {
+public:
+    int numSubmatrixSumTarget(vector<vector<int>>& matrix, int target) {
+        int ans = 0;
+        for(int i=0;i<matrix.size();i++){
+            for(int j=1;j<matrix[0].size();j++){
+                matrix[i][j]+=matrix[i][j-1];
+            }
+        }
+        for(int i=0;i<matrix[0].size();i++){
+            for(int j=i;j<matrix[0].size();j++){
+                unordered_map<int, int> m = {{0, 1}};
+                int cur = 0;
+                for(int k=0;k<matrix.size();k++){
+                    cur+=matrix[k][j]-((i>0)?matrix[k][i-1]:0);
+                    ans+=((m.find(cur-target)!=m.end())?m[cur-target]:0);
+                    m[cur]++;
+                }
+            }
+        }
+        return ans;
+    }
+};
