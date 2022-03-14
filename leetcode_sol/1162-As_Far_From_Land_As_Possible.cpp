@@ -58,4 +58,28 @@ public:
     }
 };
 
-//DFS - AC
+//DFS - TLE
+class Solution {
+private:
+    void dfs(vector<vector<int>>& grid, int i, int j, int dist = 1){
+        if(i<0 || j<0 || i>=grid.size() || j>=grid[i].size() || (grid[i][j]!=0 && grid[i][j]<=dist)) return;
+        grid[i][j] = dist;
+        dfs(grid, i-1, j, dist+1);
+        dfs(grid, i+1, j, dist+1);
+        dfs(grid, i, j-1, dist+1);
+        dfs(grid, i, j+1, dist+1);
+}
+public:
+    int maxDistance(vector<vector<int>>& grid, int ans = -1) {
+        for(auto i=0; i<grid.size(); i++)
+            for(auto j=0; j<grid[i].size(); j++)
+                if(grid[i][j]==1){
+                    grid[i][j] = 0;
+                    dfs(grid, i, j);
+                }
+        for(auto i=0; i<grid.size(); i++)
+            for(auto j=0; j<grid[i].size(); j++)
+                if(grid[i][j]>1) ans = max(ans, grid[i][j]-1);
+        return ans;
+    }
+};
