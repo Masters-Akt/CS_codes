@@ -1,3 +1,4 @@
+//M1
 class Solution {
 public:
     vector<int> partitionLabels(string s) {
@@ -25,6 +26,25 @@ public:
                 }
                 ans.push_back(end-start+1);
                 i=end;
+            }
+        }
+        return ans;
+    }
+};
+
+//M2
+class Solution {
+public:
+    vector<int> partitionLabels(string s) {
+        vector<int> ans;
+        vector<int> m(26, 0);
+        for(int i=0;i<s.size();i++) m[s[i]-'a'] = i;
+        int last = 0, first = 0;
+        for(int i=0;i<s.size();i++){
+            last = max(last, m[s[i]-'a']);
+            if(last==i){
+                ans.push_back(last-first+1);
+                first = last+1;
             }
         }
         return ans;
