@@ -1,3 +1,4 @@
+//O(N)
 class Solution {
 public:
     vector<int> searchRange(vector<int>& nums, int target) {
@@ -25,5 +26,36 @@ public:
             }
         }
         return ans;
+    }
+};
+
+//O(logN)
+class Solution {
+private:
+    int find_first(vector<int>& nums, int target){
+        int ans = -1, start = 0, end = nums.size()-1;
+        while(start<=end){
+            int mid = (start+end)/2;
+            if(nums[mid]>=target) end = mid-1;
+            else start = mid+1;
+            if(nums[mid]==target) ans = mid;
+        }
+        return ans;
+    }
+    int find_last(vector<int>& nums, int target){
+        int ans = -1, start = 0, end = nums.size()-1;
+        while(start<=end){
+            int mid = (start+end)/2;
+            if(nums[mid]<=target) start = mid+1;
+            else end = mid-1;
+            if(nums[mid]==target) ans = mid;
+        }
+        return ans;
+    }
+public:
+    vector<int> searchRange(vector<int>& nums, int target) {
+        int first = find_first(nums, target);
+        int last = find_last(nums, target);
+        return {first, last};
     }
 };
