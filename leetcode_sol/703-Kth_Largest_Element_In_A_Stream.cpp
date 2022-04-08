@@ -1,8 +1,9 @@
 //Method 1 - Priority Queue
 class KthLargest {
-public:
+private:
     priority_queue<int, vector<int>, greater<int>> p;
     int size;
+public:
     KthLargest(int k, vector<int>& nums) {
         size = k;
         for(int i=0;i<nums.size();i++){
