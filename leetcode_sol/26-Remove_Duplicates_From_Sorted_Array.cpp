@@ -12,7 +12,23 @@ public:
     }
 };
 
-//M2 - By shifting the elements to one side
+//M2 - By shifting the elements to one side using space
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        unordered_map<int, bool> m;
+        int pointer = 0;
+        for(int i=0;i<nums.size();i++){
+            if(!m[nums[i]]){
+                m[nums[i]] = true;
+                nums[pointer++] = nums[i];
+            }
+        }
+        return pointer;
+    }
+};
+
+//M3 - By shifting the elements to one side without using space
 class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
