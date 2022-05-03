@@ -1,3 +1,4 @@
+//M1
 class Solution {
 public:
     int maxSumDivThree(vector<int>& nums) {
@@ -28,5 +29,21 @@ public:
             return sum-r2[0];
         }
         return sum;
+    }
+};
+
+//M2 - DP
+class Solution {
+public:
+    int maxSumDivThree(vector<int>& nums) {
+        vector<int> remainders(3, 0);
+        for(int i=0;i<nums.size();i++){
+            vector<int> temp = remainders;
+            for(int x: remainders){
+                temp[(x+nums[i])%3] = max(temp[(x+nums[i])%3], x+nums[i]);
+            }
+            remainders = temp;
+        }
+        return remainders[0];
     }
 };
