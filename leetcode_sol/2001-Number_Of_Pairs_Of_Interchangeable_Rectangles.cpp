@@ -7,8 +7,8 @@ public:
             ratio[i] = (double)(rectangles[i][0])/(double)(rectangles[i][1]);
         }
         sort(ratio.begin(), ratio.end());
-        for(int i=0;i<n;i++) cout<<ratio[i]<<" ";
-        cout<<endl;
+        // for(int i=0;i<n;i++) cout<<ratio[i]<<" ";
+        // cout<<endl;
         long long c = 0, temp = 1;
         for(int i=1;i<n;i++){
             if(ratio[i]==ratio[i-1]) temp++;
