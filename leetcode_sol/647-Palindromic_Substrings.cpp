@@ -37,3 +37,21 @@ public:
         return ans;
     }
 };
+
+//M3 - Tabulation - TC = O(N2) - SC = O(N2)
+class Solution {
+public:
+    int countSubstrings(string s) {
+        vector<vector<int>> store(s.size(), vector<int>(s.size()));
+        int ans = 0;
+        for(int i=s.size()-1; i>=0; i--){
+            for(int j=i; j<s.size(); j++){
+                if(i==j) store[i][j] = 1;
+                else if(i+1==j) store[i][j] = (s[i]==s[j]) ? 1 : 0;
+                else store[i][j] = (s[i]==s[j]) ? store[i+1][j-1] : 0;
+                ans+=store[i][j];
+            }
+        }
+        return ans;
+    }
+};
