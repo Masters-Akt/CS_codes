@@ -1,3 +1,4 @@
+//M1
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
@@ -11,5 +12,16 @@ public:
             if(a[i]==0) return i;
         }
         return -1;
+    }
+};
+
+//M2 - XOR
+class Solution {
+public:
+    int missingNumber(vector<int>& nums) {
+        int xo = 0;
+        for(int i=0;i<=nums.size();i++) xo^=i;
+        for(int x: nums) xo^=x;
+        return xo;
     }
 };
