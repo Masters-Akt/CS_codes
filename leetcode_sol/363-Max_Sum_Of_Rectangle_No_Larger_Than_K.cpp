@@ -1,5 +1,5 @@
 class Solution {
-public:
+private:
     int ans = INT_MIN;
     void updateResult(vector<int>& nums, int k){
         int s=0;
@@ -13,6 +13,7 @@ public:
             sortedSum.insert(s);
         }
     }
+public:
     int maxSumSubmatrix(vector<vector<int>>& matrix, int k) {
         vector<int> rowSum(matrix[0].size());
         for(int i=0;i<matrix.size();i++){
